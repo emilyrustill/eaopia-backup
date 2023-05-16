@@ -1,2 +1,2 @@
 # eaopia backup
- backup o eaopia if all fails
+ backup of eaopia if all fails
