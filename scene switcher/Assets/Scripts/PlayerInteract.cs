@@ -12,11 +12,29 @@ public class PlayerInteract : MonoBehaviour
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach(Collider collider in colliderArray)
             {
-               if (collider.TryGetComponent(out NPCInteractable npcInteractable))
-                    {
-                    npcInteractable.Interact();
-                    }
+               //if (collider.TryGetComponent(out NPCInteractable npcInteractable))
+                   // {
+                   // npcInteractable.Interact();
+                   // }
+                if (collider.TryGetComponent(out NPCInteractable npcInteractable))
+                {
+                    npcInteractable.Next();
+                }
             }
         }
     }
+
+    public NPCInteractable GetInteractableObject()
+    {
+        float interactRange = 2f;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out NPCInteractable npcInteractable))
+            {
+                return npcInteractable;
+            }
+        }
+        return null;
+    } 
 }
